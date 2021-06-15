@@ -27,7 +27,17 @@ basicCN <- ggplot(davisdata,aes(y=alcohol,x=Seat))
 ```{r}
 basicCN + geom_boxplot()
 ```
-  
+
+It appears that there is a difference between people who choose to sit in the     
+back of the class.    
+
+ 
+```{r}
+boxplot(alcohol~Seat,data=davisdata)
+```
+
+In this graph it is showing that the people who sit in the back of the class     
+drink more alcohol at 30 than the people who choose to sit in the front between   0 and 10 or the middle.    
   
 ### get fancy  
 
@@ -35,9 +45,48 @@ basicCN + geom_boxplot()
 basicCN + geom_boxplot(notch=TRUE,outlier.color = "red") + stat_boxplot(geom ='errorbar') + labs(title="Fancy notch boxplot \n with 2 lines")
 ```
 
+In this plot we see that there are red dots that represent outliers this is       showing that the people who sit in the back are drinking a larger amount of     alcohol in the 45 to 50 range compared to the front seat that is drinking   
+between 10 to 20.    
+
+```{r}
+basicCN <- ggplot(davisdata,aes(x=Seat,y=alcohol))
+
+basicCN + geom_boxplot()
+```
+ 
+
+
 ## Numerical Summarys 
 
+```{r}
+favstats(alcohol~Seat,data=davisdata)
+```
+
+
+It appears that the average number of drinks in the back row is 9.6 and that     
+front row's average is 1.8 while the middle row is at 3.28 which is 3x lower     
+than the back row    
+
+
+
+
 ## Inferential Tests
+
+```{r}
+model1 <- aov(alcohol~Seat,data=davisdata)
+summary.aov(model1)
+```
+
+We will reject the null hypothesis, we will seek more clarification.  
+
+
+```{r}
+plot(TukeyHSD(model1))
+```
+
+
+It appears that there is a diffference between the middle and back rows and the   front and the back rows there is not much difference between the front and the  
+middle.  
 
 ## Conclusions
 
