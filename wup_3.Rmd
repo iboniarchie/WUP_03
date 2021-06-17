@@ -85,9 +85,14 @@ plot(TukeyHSD(model1))
 ```
 
 
-It appears that there is a diffference between the middle and back rows and the   front and the back rows there is not much difference between the front and the  
+It appears that there is a diffference between the middle and back rows and the  
+front and the back rows there is not much difference between the front and the  
 middle.  
 
 ## Conclusions
 
+In the previous charts we saw no difference in the middle and front rows.  
+There was a big difference in the back rows in drinking alcohol. Due to the categorical variable has more than 2 levels, an anova was used to show the difffernce in alcohol consumption among the seat locations turkeyhsd showed the
+difference between the back row and not much difference between the front and 
+and middle rows
 
